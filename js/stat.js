@@ -37,15 +37,20 @@ window.renderStatistics = function (ctx, names, times) {
 
   ctx.textBaseline = 'top'; // положение надписи от левого верхнего угла
   for (var i = 0; i < times.length; i++) {
-
-    ctx.fillRect(initialX + indent * i + barWidth * i, initialY, barWidth, times[i] * step);
-    if (names[i] = 'Вы') {
+    if (names [i] === 'Вы') {
       ctx.fillStyle = 'rgba(255, 0, 0, 1)';
     } else {
       ctx.fillStyle = '#020E86';
     }
+    ctx.fillRect(initialX + indent * i + barWidth * i, initialY, barWidth, times[i] * step);
+    // if (names[i] = 'Вы') {
+    //   ctx.fillStyle = 'rgba(255, 0, 0, 1)';
+    // } else {
+    //   ctx.fillStyle = '#020E86';
+    // }
     // ctx.rotate(1.5 * Math.PI);
     // ctx.translate(-150, 25);
     ctx.fillText(names[i], initialX + indent * i + barWidth * i, initialY + histogramHeight);
+    ctx.fillStyle = '#000';
   }
 };
