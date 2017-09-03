@@ -85,14 +85,20 @@ var openPopup = function () {
 var userNameInput = setup.querySelector('.setup-user-name');
 
 var closePopup = function () {
-  // if (userNameInput.focused) {
-  setup.classList.add('hidden');
-  document.removeEventListener('keydown', onPopupEscPress);
-  // }
+  if (userNameInput === document.activeElement) {
+    return;
+  } else {
+    setup.classList.add('hidden');
+    document.removeEventListener('keydown', onPopupEscPress);
+  }
 };
 
 var changeColor = function (elementChangeColor, array) {
   setupPlayer.querySelector(elementChangeColor).style.fill = getRandomize(array);
+};
+
+var changeBackGroundColor = function (elementChangeColor, array) {
+  setupPlayer.querySelector(elementChangeColor).style.backgroundColor = getRandomize(array);
 };
 
 setupOpen.addEventListener('click', function () {
@@ -124,7 +130,7 @@ setupPlayer.querySelector('.wizard-eyes').addEventListener('click', function () 
 });
 
 setupPlayer.querySelector('.setup-fireball-wrap').addEventListener('click', function () {
-  changeColor('.setup-fireball-wrap', WIZARD_FIREBALL);
+  changeBackGroundColor('.setup-fireball-wrap', WIZARD_FIREBALL);
 });
 
 userNameInput.addEventListener('invalid', function () {
