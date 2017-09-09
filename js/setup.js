@@ -10,8 +10,6 @@
 
   var WIZARD_EYESCOLOR = ['black', 'red', 'blue', 'yellow', 'green'];
 
-  var WIZARD_FIREBALL = ['#ee4830', '#30a8ee', '#5ce6c0', '#e848d5', '#e6e848'];
-
   var WIZARDS_COUNT = 4;
 
   var userDialog = document.querySelector('.setup');
